@@ -1,10 +1,55 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Paul
- * Date: 15/04/13
- * Time: 7:22 PM
- * To change this template use File | Settings | File Templates.
- */
-// Adding new js file to Github
+var status = '';
+var myArray = [1,2,3] ;
+function toggleStar() {
+    if (!status || status === 'flag') {
+        status  = 'star';
+    }
+    else if (status === 'star') {
+        status = '';
+    }
+    return status;
+}
 
-// Added a new comment
+function toggleFlag() {
+    if (!status || status === 'star') {
+        status  = 'flag';
+    }
+    else if (status === 'flag') {
+        status = '';
+    }
+    return status;
+}
+function cycleState() {
+   switch (status) {
+      case '' :
+           status = 'flag';
+           break;
+       case 'flag':
+           status = 'star';
+           break;
+       case 'star':
+           status = '';
+           break;
+   }
+    return status;
+}
+
+console.log('expect null: ' + status);
+toggleFlag();
+console.log('expect flag: ' + status);
+toggleFlag();
+console.log('expect null: ' + status);
+toggleStar();
+console.log('expect star: ' + status);
+toggleStar();
+console.log('expect null: ' + status);
+
+cycleState();
+console.log('expect flag: ' + status);
+cycleState();
+console.log('expect star: ' + status);
+cycleState();
+console.log('expect null: ' + status);
+
+
+
